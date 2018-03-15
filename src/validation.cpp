@@ -2013,8 +2013,6 @@ bool CheckReward(const CBlock& block, CValidationState& state, int nHeight, cons
     {
         // Check proof-of-work reward
         CAmount blockReward = nFees + GetBlockSubsidy(nHeight, consensusParams);
-        if (Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight == consensusParams.nDiffDamping)
-            blockReward = nFees + GetBlockSubsidy(nHeight, consensusParams) + GetSubsidy(nHeight);
         if (block.vtx[offset]->GetValueOut() > blockReward)
             return state.DoS(100,
                              error("CheckReward(): coinbase pays too much (actual=%d vs limit=%d)",
