@@ -1,14 +1,14 @@
 *.tar.gz
 
 *.exe
-src/htmlcoin-cli
-src/htmlcoin-tx
-src/htmlcoind
+src/agricoin-cli
+src/agricoin-tx
+src/agricoind
 src/bench/bench_qtum
-src/qt/htmlcoin-qt
-src/qt/test/test_htmlcoin-qt
-src/test/test_htmlcoin
-src/test/test_htmlcoin_fuzzy
+src/qt/agricoin-qt
+src/qt/test/test_agricoin-qt
+src/test/test_agricoin
+src/test/test_agricoin_fuzzy
 
 # autoreconf
 Makefile.in
@@ -77,12 +77,12 @@ Makefile.am.user
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-htmlcoin-qt
-HTMLCOIN-Qt.app
+agricoin-qt
+agricoin-Qt.app
 
 # Unit-tests
 Makefile.test
-htmlcoin-qt_test
+agricoin-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -96,7 +96,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_htmlcoin.coverage/
+test_agricoin.coverage/
 total.coverage/
 coverage_percent.txt
 

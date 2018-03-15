@@ -171,10 +171,10 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0xb07b60977e6f1ebfc23c074fb319c654e38dba5d7db16902863a4a98dd981f68"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "seed1.htmlcoin.com", false));
-        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "seed2.htmlcoin.com", false));
-        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "seed3.htmlcoin.com", false));
-        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "seed4.htmlcoin.com", false));
+        vSeeds.push_back(CDNSSeedData("agricoin.com", "seed1.agricoin.com", false));
+        vSeeds.push_back(CDNSSeedData("agricoin.com", "seed2.agricoin.com", false));
+        vSeeds.push_back(CDNSSeedData("agricoin.com", "seed3.agricoin.com", false));
+        vSeeds.push_back(CDNSSeedData("agricoin.com", "seed4.agricoin.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,41);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,100);
@@ -269,7 +269,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "testnet-seed1.htmlcoin.com", false));
+        vSeeds.push_back(CDNSSeedData("agricoin.com", "testnet-seed1.agricoin.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,100);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,110);
@@ -417,15 +417,4 @@ void SelectParams(const std::string& network)
 void UpdateRegtestBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
 {
     regTestParams.UpdateBIP9Parameters(d, nStartTime, nTimeout);
-}
-
-CScript CChainParams::GetRewardScriptAtHeight(int nHeight) const {
-    assert(nHeight == consensus.nDiffDamping);
-
-    CBitcoinAddress address;
-    if (Params().NetworkIDString() == CBaseChainParams::MAIN)
-        address = CBitcoinAddress("HXsXRP1smr1pgb23eYV1fjN6ZB8EWfXj6J");
-
-    assert(address.IsValid());
-    return GetScriptForDestination(address.Get());
 }

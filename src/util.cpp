@@ -99,8 +99,8 @@ namespace boost {
 
 using namespace std;
 
-const char * const BITCOIN_CONF_FILENAME = "htmlcoin.conf";
-const char * const BITCOIN_PID_FILENAME = "htmlcoind.pid";
+const char * const BITCOIN_CONF_FILENAME = "agricoin.conf";
+const char * const BITCOIN_PID_FILENAME = "agricoind.pid";
 
 CCriticalSection cs_args;
 map<string, string> mapArgs;
@@ -503,13 +503,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\HTMLCOIN
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\HTMLCOIN
-    // Mac: ~/Library/Application Support/HTMLCOIN
-    // Unix: ~/.htmlcoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\agricoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\agricoin
+    // Mac: ~/Library/Application Support/agricoin
+    // Unix: ~/.agricoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "HTMLCOIN";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "agricoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -519,10 +519,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/HTMLCOIN";
+    return pathRet / "Library/Application Support/agricoin";
 #else
     // Unix
-    return pathRet / ".htmlcoin";
+    return pathRet / ".agricoin";
 #endif
 #endif
 }

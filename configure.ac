@@ -7,17 +7,17 @@ define(_CLIENT_VERSION_BUILD, 1)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2018)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[HTMLCOIN Core]])
-AC_INIT([HTMLCOIN CORE],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/HTMLCOIN/HTMLCOIN/issues],[htmlcoin],[http://www.htmlcoin.com/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[agricoin Core]])
+AC_INIT([agricoin CORE],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/agricoin/agricoin/issues],[agricoin],[http://www.agricoin.com/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=htmlcoind
-BITCOIN_GUI_NAME=htmlcoin-qt
-BITCOIN_CLI_NAME=htmlcoin-cli
-BITCOIN_TX_NAME=htmlcoin-tx
+BITCOIN_DAEMON_NAME=agricoind
+BITCOIN_GUI_NAME=agricoin-qt
+BITCOIN_CLI_NAME=agricoin-cli
+BITCOIN_TX_NAME=agricoin-tx
 
 AC_CANONICAL_HOST
 
@@ -931,11 +931,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build htmlcoind])
+AC_MSG_CHECKING([whether to build agricoind])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (htmlcoin-cli htmlcoin-tx)])
+AC_MSG_CHECKING([whether to build utils (agricoin-cli agricoin-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -1036,7 +1036,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_htmlcoin-qt])
+  AC_MSG_CHECKING([whether to build test_agricoin-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1047,7 +1047,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_htmlcoin])
+AC_MSG_CHECKING([whether to build test_agricoin])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"

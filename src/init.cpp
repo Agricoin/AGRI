@@ -525,8 +525,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/HTMLCOIN/HTMLCOIN>";
-    const std::string URL_WEBSITE = "<https://htmlcoin.com>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/agricoin/agricoin>";
+    const std::string URL_WEBSITE = "<https://agricoin.com>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2017, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -807,7 +807,7 @@ void InitLogging()
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("HTMLCOIN version %s\n", FormatFullVersion());
+    LogPrintf("agricoin version %s\n", FormatFullVersion());
 }
 
 namespace { // Variables internal to initialization process only
@@ -1479,7 +1479,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                 pcoinsTip = new CCoinsViewCache(pcoinscatcher);
 
                 if (fReindex) {
-                    boost::filesystem::path stateDir = GetDataDir() / "stateHTMLCOIN";
+                    boost::filesystem::path stateDir = GetDataDir() / "stateagricoin";
                     StorageResults storageRes(stateDir.string());
                     storageRes.wipeResults();
                     pblocktree->WriteReindexing(true);
@@ -1514,7 +1514,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 dev::eth::Ethash::init();
 
-                boost::filesystem::path qtumStateDir = GetDataDir() / "stateHTMLCOIN";
+                boost::filesystem::path qtumStateDir = GetDataDir() / "stateagricoin";
 
                 bool fStatus = boost::filesystem::exists(qtumStateDir);
                 const std::string dirQtum(qtumStateDir.string());

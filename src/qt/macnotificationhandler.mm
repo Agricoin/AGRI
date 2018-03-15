@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"com.htmlcoin.HTMLCOIN-Qt";
+        return @"com.agricoin.agricoin-Qt";
     } else {
         return [self __bundleIdentifier];
     }

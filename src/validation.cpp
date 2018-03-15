@@ -54,7 +54,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "HTMLCOIN cannot be compiled without assertions."
+# error "agricoin cannot be compiled without assertions."
 #endif
 
 /**
@@ -112,7 +112,7 @@ static bool UpdateHashProof(const CBlock& block, CValidationState& state, const 
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "HTMLCOIN Signed Message:\n";
+const std::string strMessageMagic = "agricoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1387,11 +1387,6 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     return nSubsidy;
 }
 
-CAmount GetSubsidy(int nHeight) {
-    if (nHeight == Params().GetConsensus().nDiffDamping) return 13967176504 * COIN;
-    return 0;
-}
-
 bool IsInitialBlockDownload()
 {
     const CChainParams& chainParams = Params();
@@ -1555,28 +1550,6 @@ int GetSpendHeight(const CCoinsViewCache& inputs)
     return pindexPrev->nHeight + 1;
 }
 
-static bool CheckHash(const CTransaction &tx, const CCoinsViewCache &inputs) {
-    const uint256 hash0 = uint256S("0x2b93e34c3207cbda6b8be0be6e4fe110d8c902e30c4f8011bdd9aedadf69efec");
-    const uint256 hash1 = uint256S("0x7ff178e324e0e42486d6d985b576a7fe494069622831828d70151b15b2199b43");
-    const uint256 hash2 = uint256S("0xc03dab08bf00ae87581fd87358422097b5f7b44e1a9439ac2e68d5a069013bb1");
-    const uint256 hash3 = uint256S("0xd28ff9e2c0189221e4337793444db44a91339fadd4a2ceafe52dded37f88d2f3");
-    const uint256 hash4 = uint256S("0xa06d89c24faa49998281627b783d8ca3638a7be421f76b03fca6bcd413af3b94");
-    const uint256 hash5 = uint256S("0x0d009c1fe5910a8fa5488784fc0c1edf5cf75fa09e0ee4486ae19c8c37ef7467");
-
-    unsigned int i;
-    CBlockIndex *pindexBlock = mapBlockIndex.find(inputs.GetBestBlock())->second;
-    for(i = 0; i < tx.vin.size(); i++) {
-        const COutPoint &prevout = tx.vin[i].prevout;
-        if((pindexBlock->nHeight > 106000) &&
-          ((prevout.hash == hash0) || (prevout.hash == hash1) || (prevout.hash == hash2) ||
-           (prevout.hash == hash3) || (prevout.hash == hash4) || (prevout.hash == hash5))) {
-            strprintf("%s hash failed", tx.GetHash().ToString().substr(0,10).c_str());
-            return(false);
-        }
-    }
-
-    return(true);
-}
 
 namespace Consensus {
 bool CheckTxInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, int nSpendHeight)
@@ -1585,9 +1558,6 @@ bool CheckTxInputs(const CTransaction& tx, CValidationState& state, const CCoins
         // for an attacker to attempt to split the network.
         if (!inputs.HaveInputs(tx))
             return state.Invalid(false, 0, "", "Inputs unavailable");
-
-        if(!CheckHash(tx, inputs))
-            return(state.DoS(100, false, REJECT_INVALID, "bad-hash"));
 
         CAmount nValueIn = 0;
         CAmount nFees = 0;
@@ -1633,9 +1603,6 @@ bool CheckTxInputs(const CTransaction& tx, CValidationState& state, const CCoins
 
 bool CheckInputs(const CTransaction& tx, CValidationState &state, const CCoinsViewCache &inputs, bool fScriptChecks, unsigned int flags, bool cacheStore, PrecomputedTransactionData& txdata, std::vector<CScriptCheck> *pvChecks)
 {
-    if(!CheckHash(tx, inputs))
-        return(state.DoS(100, false, REJECT_INVALID, "bad-hash"));
-
     if (!tx.IsCoinBase())
     {
         if (!Consensus::CheckTxInputs(tx, state, inputs, GetSpendHeight(inputs)))
@@ -4216,22 +4183,6 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, const Co
         }
     }
 
-    // Coinbase transaction must include CG fund
-    if (Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight == consensusParams.nDiffDamping) {
-        bool found = false;
-
-        BOOST_FOREACH(const CTxOut& output, block.vtx[0]->vout) {
-            if (output.scriptPubKey == Params().GetRewardScriptAtHeight(nHeight)) {
-                if (output.nValue == GetSubsidy(nHeight)) {
-                    found = true;
-                    break;
-                }
-            }
-        }
-
-        if (!found)
-            return state.DoS(100, error("%s: founders reward missing", __func__), REJECT_INVALID, "cb-no-founders-reward");
-    }
 
     // Check that the block satisfies synchronized checkpoint
     if (!IsInitialBlockDownload() && !CheckSyncCheckpoint(block.GetHash(), pindexPrev))
