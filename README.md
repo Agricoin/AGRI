@@ -1,7 +1,6 @@
 agricoin 2.0 Core
 =========
 
-http://www.agricoin.com/
 
 What is agricoin 2.0?
 -------------
