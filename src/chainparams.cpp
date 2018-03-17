@@ -54,7 +54,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Agriculture is tech, life and new way to get population self sustained";
+    const char* pszTimestamp = "BBC 9/24/2017 Germany election Merkel wins fourth term";
     const CScript genesisOutputScript = CScript() << ParseHex("04e67225ab32299deaf6312b5b77f0cd2a5264f3757c9663f8dc401ff8b3ad8b012fde713be690ab819f977f84eaef078767168aeb1cb1287941b6319b76d8e582") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -159,9 +159,9 @@ public:
         pchMessageStart[3] = 0x4c;
         nDefaultPort = 4888;
         nPruneAfterHeight = 100000;
-        startNewChain = true;
+        startNewChain = false;
 
-        genesis = CreateGenesisBlock(1521308600, 94371, 0x1f00ffff, 1, 1 * COIN);
+        genesis = CreateGenesisBlock(1506211200, 94371, 0x1f00ffff, 1, 1 * COIN);
 
         if (startNewChain)
             MineGenesis(genesis, consensus.powLimit, false);
