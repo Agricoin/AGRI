@@ -179,9 +179,9 @@ public:
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         // without seeds for now
-        //vSeeds.push_back(CDNSSeedData("agricoin.com", "seed1.agricoin.com", false));
-        //vSeeds.push_back(CDNSSeedData("agricoin.com", "seed2.agricoin.com", false));
-        //vSeeds.push_back(CDNSSeedData("agricoin.com", "seed3.agricoin.com", false));
+        vSeeds.push_back(CDNSSeedData("agrilio.com", "seed1.agrilio.com", false));
+        vSeeds.push_back(CDNSSeedData("agrilio.com", "seed2.agrilio.com", false));
+        vSeeds.push_back(CDNSSeedData("agrilio.com", "seed3.agrilio.com", false));
         //vSeeds.push_back(CDNSSeedData("agricoin.com", "seed4.agricoin.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,41);
