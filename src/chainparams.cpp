@@ -184,7 +184,7 @@ public:
         vSeeds.push_back(CDNSSeedData("agrilio.com", "seed3.agrilio.com", false));
         //vSeeds.push_back(CDNSSeedData("agricoin.com", "seed4.agricoin.com", false));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,41);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,23);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,100);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,169);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x13)(0x97)(0xC1)(0x0D).convert_to_container<std::vector<unsigned char> >();
