@@ -54,9 +54,9 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "NYT 3/19/2018 Uber Halts Tests of Self-Driving Cars After Pedestrian Dies";
-    const CScript genesisOutputScript = CScript() << ParseHex("04e67225ab32299deaf6312b5b77f0cd2a5264f3757c9663f8dc401ff8b3ad8b012fde713be690ab819f977f84eaef078767168aeb1cb1287941b6319b76d8e582") << OP_CHECKSIG;
-    return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
+  const char* pszTimestamp = "NYT 3/19/2018 Uber Halts Tests of Self-Driving Cars After Pedestrian Dies";
+   const CScript genesisOutputScript = CScript() << ParseHex("04e67225ab32299deaf6312b5b77f0cd2a5264f3757c9663f8dc401ff8b3ad8b012fde713be690ab819f977f84eaef078767168aeb1cb1287941b6319b76d8e582") << OP_CHECKSIG;
+   return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
 static void MineGenesis(CBlockHeader& genesisBlock, const uint256& powLimit, bool noProduction)
@@ -153,13 +153,13 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x2f;
-        pchMessageStart[1] = 0x10;
-        pchMessageStart[2] = 0x6e;
-        pchMessageStart[3] = 0x78;
-        nDefaultPort = 5888;
-        nPruneAfterHeight = 100000;
-        startNewChain = false;
+         pchMessageStart[0] = 0x2f;
+         pchMessageStart[1] = 0x10;
+         pchMessageStart[2] = 0x6e;
+         pchMessageStart[3] = 0x78;
+         nDefaultPort = 5888;
+         nPruneAfterHeight = 100000;
+         startNewChain = false;
 
         genesis = CreateGenesisBlock(1521515740, 44287, 0x1f00ffff, 1, 1 * COIN);
 
@@ -167,22 +167,12 @@ public:
             MineGenesis(genesis, consensus.powLimit, false);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-
-    	LogPrintf("Genesis Hash founded= %s\n", consensus.hashGenesisBlock.ToString().c_str());
-    	LogPrintf("Genesis hashStateRoot founded= %s\n",  genesis.hashStateRoot.ToString().c_str());
-    	LogPrintf("Genesis Hash Merkle Root founded= %s\n",  genesis.hashMerkleRoot.ToString().c_str());
-
-	LogPrintf("Display genesis hash so we can input it below %s\n", consensus.hashGenesisBlock.ToString().c_str());
-
         assert(consensus.hashGenesisBlock == uint256S("0x0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea"));
         assert(genesis.hashMerkleRoot == uint256S("0xa72fb5ad814707ad2731b78ab6e592570e7543457348071c7432a4f3a520a828"));
-
         // Note that of those with the service bits flag, most only support a subset of possible options
-        // without seeds for now
-        vSeeds.push_back(CDNSSeedData("agrilio.com", "seed1.agrilio.com", false));
-        vSeeds.push_back(CDNSSeedData("agrilio.com", "seed2.agrilio.com", false));
-        vSeeds.push_back(CDNSSeedData("agrilio.com", "seed3.agrilio.com", false));
-        //vSeeds.push_back(CDNSSeedData("agricoin.com", "seed4.agricoin.com", false));
+        //vSeeds.push_back(CDNSSeedData("agrilio.com", "seed1.agrilio.com", false));
+        //vSeeds.push_back(CDNSSeedData("agrilio.com", "seed2.agrilio.com", false));
+        //vSeeds.push_back(CDNSSeedData("agrilio.com", "seed3.agrilio.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,23);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,100);
@@ -198,17 +188,17 @@ public:
         fMineBlocksOnDemand = false;
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            ( 0, uint256S("0x0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea"))
-           // ( 798, uint256S("00002847d05b6fe46570b754815309123bedcb84a5ac2ae58fa1d38957ccb772"))
-        };
+             boost::assign::map_list_of
+             ( 0, uint256S("0x0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea"))
+            // ( 798, uint256S("00002847d05b6fe46570b754815309123bedcb84a5ac2ae58fa1d38957ccb772"))
+         };
 
-       chainTxData = ChainTxData{
-            // Data as of block 00000000000000000166d612d5595e2b1cd88d71d695fc580af64d8da8658c23 (height 446482).
-            0, // * UNIX timestamp of last known number of transactions
-            0,  // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-            0         // * estimated number of transactions per second after that timestamp
+         chainTxData = ChainTxData{
+               // Data as of block 00000000000000000166d612d5595e2b1cd88d71d695fc580af64d8da8658c23 (height 446482).
+               0, // * UNIX timestamp of last known number of transactions
+               0,  // * total number of transactions between genesis and that timestamp
+                           //   (the tx=... number in the SetBestChain debug.log lines)
+               0         // * estimated number of transactions per second after that timestamp
         };
         consensus.nMPoSRewardRecipients = 10;
         consensus.nFirstMPoSBlock = 5000 + consensus.nMPoSRewardRecipients +
@@ -264,7 +254,7 @@ public:
         pchMessageStart[3] = 0x5c;
         nDefaultPort = 14888;
         nPruneAfterHeight = 1000;
-        startNewChain = true;
+        startNewChain = false;
 
         genesis = CreateGenesisBlock(1506212200, 102232, 0x1f00ffff, 1, 1 * COIN);
 
@@ -272,12 +262,12 @@ public:
             MineGenesis(genesis, consensus.powLimit, false);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-       // assert(consensus.hashGenesisBlock == uint256S("0x000013694772f8aeb88efeb2829fe5d71fbca3e23d5043baa770726f204f528c"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000013694772f8aeb88efeb2829fe5d71fbca3e23d5043baa770726f204f528c"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("agricoin.com", "testnet-seed1.agricoin.com", false));
+        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "testnet-seed1.htmlcoin.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,100);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,110);
@@ -358,7 +348,7 @@ public:
             MineGenesis(genesis, consensus.powLimit, false);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        //assert(consensus.hashGenesisBlock == uint256S("0x03c80d2399e1fe481a51e122ac55159a4e5fe635494a7fd368f3e440241fccb2"));
+        assert(consensus.hashGenesisBlock == uint256S("0x03c80d2399e1fe481a51e122ac55159a4e5fe635494a7fd368f3e440241fccb2"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -425,4 +415,15 @@ void SelectParams(const std::string& network)
 void UpdateRegtestBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
 {
     regTestParams.UpdateBIP9Parameters(d, nStartTime, nTimeout);
+}
+
+CScript CChainParams::GetRewardScriptAtHeight(int nHeight) const {
+    assert(nHeight == consensus.nDiffDamping);
+
+    CBitcoinAddress address;
+    if (Params().NetworkIDString() == CBaseChainParams::MAIN)
+        address = CBitcoinAddress("HXsXRP1smr1pgb23eYV1fjN6ZB8EWfXj6J");
+
+    assert(address.IsValid());
+    return GetScriptForDestination(address.Get());
 }
