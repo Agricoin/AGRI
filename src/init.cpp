@@ -525,8 +525,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/HTMLCOIN/HTMLCOIN>";
-    const std::string URL_WEBSITE = "<https://htmlcoin.com>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/AGRICOIN/AGRICOIN>";
+    const std::string URL_WEBSITE = "<https://agricoin.com>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2017, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -807,7 +807,7 @@ void InitLogging()
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("HTMLCOIN version %s\n", FormatFullVersion());
+    LogPrintf("AGRICOIN version %s\n", FormatFullVersion());
 }
 
 namespace { // Variables internal to initialization process only

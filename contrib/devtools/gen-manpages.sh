@@ -5,9 +5,9 @@ SRCDIR=${SRCDIR:-$TOPDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
 BITCOIND=${BITCOIND:-$SRCDIR/htmlcoind}
-BITCOINCLI=${BITCOINCLI:-$SRCDIR/htmlcoin-cli}
-BITCOINTX=${BITCOINTX:-$SRCDIR/htmlcoin-tx}
-BITCOINQT=${BITCOINQT:-$SRCDIR/qt/htmlcoin-qt}
+BITCOINCLI=${BITCOINCLI:-$SRCDIR/agricoin-cli}
+BITCOINTX=${BITCOINTX:-$SRCDIR/agricoin-tx}
+BITCOINQT=${BITCOINQT:-$SRCDIR/qt/agricoin-qt}
 
 [ ! -x $BITCOIND ] && echo "$HTMLCOIND not found or not executable." && exit 1
 

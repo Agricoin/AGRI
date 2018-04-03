@@ -74,7 +74,7 @@ if BUILD_BITCOIND
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += htmlcoin-cli htmlcoin-tx
+  bin_PROGRAMS += agricoin-cli agricoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security

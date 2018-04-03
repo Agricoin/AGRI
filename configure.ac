@@ -7,17 +7,17 @@ define(_CLIENT_VERSION_BUILD, 1)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2018)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[HTMLCOIN Core]])
-AC_INIT([HTMLCOIN CORE],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/HTMLCOIN/HTMLCOIN/issues],[htmlcoin],[http://www.htmlcoin.com/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[AGRICOIN Core]])
+AC_INIT([AGRICOIN CORE],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/AGRICOIN/AGRICOIN/issues],[agricoin],[http://www.agricoin.com/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
 BITCOIN_DAEMON_NAME=htmlcoind
-BITCOIN_GUI_NAME=htmlcoin-qt
-BITCOIN_CLI_NAME=htmlcoin-cli
-BITCOIN_TX_NAME=htmlcoin-tx
+BITCOIN_GUI_NAME=agricoin-qt
+BITCOIN_CLI_NAME=agricoin-cli
+BITCOIN_TX_NAME=agricoin-tx
 
 AC_CANONICAL_HOST
 
@@ -935,7 +935,7 @@ AC_MSG_CHECKING([whether to build htmlcoind])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (htmlcoin-cli htmlcoin-tx)])
+AC_MSG_CHECKING([whether to build utils (agricoin-cli agricoin-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
