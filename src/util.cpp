@@ -100,7 +100,7 @@ namespace boost {
 using namespace std;
 
 const char * const BITCOIN_CONF_FILENAME = "agricoin.conf";
-const char * const BITCOIN_PID_FILENAME = "htmlcoind.pid";
+const char * const BITCOIN_PID_FILENAME = "agricoind.pid";
 
 CCriticalSection cs_args;
 map<string, string> mapArgs;

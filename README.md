@@ -76,7 +76,7 @@ NOTE: Building with Qt4 is still supported, however, could result in a broken UI
 
 ### Run
 
-Then you can either run the command-line daemon using `src/htmlcoind` and `src/agricoin-cli`, or you can run the Qt GUI using `src/qt/agricoin-qt`
+Then you can either run the command-line daemon using `src/agricoind` and `src/agricoin-cli`, or you can run the Qt GUI using `src/qt/agricoin-qt`
 
 For in-depth description of Sparknet and how to use AGRICOIN for interacting with contracts, please see [sparknet-guide](doc/sparknet-guide.md).
 

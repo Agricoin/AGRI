@@ -50,9 +50,9 @@ Var StartMenuGroup
 # Installer attributes
 OutFile @PACKAGE_TARNAME@-${VERSION}-win@WINDOWS_BITS@-setup.exe
 !if "@WINDOWS_BITS@" == "64"
-InstallDir $PROGRAMFILES64\HTMLCOIN2
+InstallDir $PROGRAMFILES64\AGRICOIN2
 !else
-InstallDir $PROGRAMFILES\HTMLCOIN2
+InstallDir $PROGRAMFILES\AGRICOIN2
 !endif
 CRCCheck on
 XPStyle on

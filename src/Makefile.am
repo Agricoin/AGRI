@@ -70,7 +70,7 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += htmlcoind
+  bin_PROGRAMS += agricoind
 endif
 
 if BUILD_BITCOIN_UTILS
@@ -579,16 +579,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-htmlcoind_SOURCES = bitcoind.cpp
-htmlcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-htmlcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-htmlcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+agricoind_SOURCES = bitcoind.cpp
+agricoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+agricoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+agricoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-htmlcoind_SOURCES += bitcoind-res.rc
+agricoind_SOURCES += bitcoind-res.rc
 endif
 
-htmlcoind_LDADD = \
+agricoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -603,19 +603,19 @@ htmlcoind_LDADD = \
   $(LIBCRYPTOPP) \
   $(LIBSECP256K1)
 
-htmlcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+agricoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-htmlcoin_cli_SOURCES = bitcoin-cli.cpp
-htmlcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-htmlcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-htmlcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+agricoin_cli_SOURCES = bitcoin-cli.cpp
+agricoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+agricoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+agricoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-htmlcoin_cli_SOURCES += bitcoin-cli-res.rc
+agricoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-htmlcoin_cli_LDADD = \
+agricoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
@@ -626,20 +626,20 @@ htmlcoin_cli_LDADD = \
   $(LIBCRYPTOPP) \
   $(LIBSECP256K1)
 
-htmlcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+agricoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
-htmlcoin_tx_SOURCES = bitcoin-tx.cpp consensus/consensus.cpp
-htmlcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-htmlcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-htmlcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+agricoin_tx_SOURCES = bitcoin-tx.cpp consensus/consensus.cpp
+agricoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+agricoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+agricoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-htmlcoin_tx_SOURCES += bitcoin-tx-res.rc
+agricoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-htmlcoin_tx_LDADD = \
+agricoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -651,7 +651,7 @@ htmlcoin_tx_LDADD = \
   $(LIBCRYPTOPP) \
   $(LIBSECP256K1)
 
-htmlcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+agricoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

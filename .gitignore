@@ -3,12 +3,12 @@
 *.exe
 src/agricoin-cli
 src/agricoin-tx
-src/htmlcoind
+src/agricoind
 src/bench/bench_qtum
 src/qt/agricoin-qt
-src/qt/test/test_htmlcoin-qt
-src/test/test_htmlcoin
-src/test/test_htmlcoin_fuzzy
+src/qt/test/test_agricoin-qt
+src/test/test_agricoin
+src/test/test_agricoin_fuzzy
 
 # autoreconf
 Makefile.in
@@ -96,7 +96,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_htmlcoin.coverage/
+test_agricoin.coverage/
 total.coverage/
 coverage_percent.txt
 

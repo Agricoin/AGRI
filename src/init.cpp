@@ -1486,7 +1486,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
                 pcoinsTip = new CCoinsViewCache(pcoinscatcher);
 
                 if (fReindex) {
-                    boost::filesystem::path stateDir = GetDataDir() / "stateHTMLCOIN";
+                    boost::filesystem::path stateDir = GetDataDir() / "stateAGRICOIN";
                     StorageResults storageRes(stateDir.string());
                     storageRes.wipeResults();
                     pblocktree->WriteReindexing(true);
@@ -1521,7 +1521,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 dev::eth::Ethash::init();
 
-                boost::filesystem::path qtumStateDir = GetDataDir() / "stateHTMLCOIN";
+                boost::filesystem::path qtumStateDir = GetDataDir() / "stateAGRICOIN";
 
                 bool fStatus = boost::filesystem::exists(qtumStateDir);
                 const std::string dirQtum(qtumStateDir.string());

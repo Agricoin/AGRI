@@ -14,7 +14,7 @@ AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=htmlcoind
+BITCOIN_DAEMON_NAME=agricoind
 BITCOIN_GUI_NAME=agricoin-qt
 BITCOIN_CLI_NAME=agricoin-cli
 BITCOIN_TX_NAME=agricoin-tx
@@ -931,7 +931,7 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build htmlcoind])
+AC_MSG_CHECKING([whether to build agricoind])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
@@ -1036,7 +1036,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_htmlcoin-qt])
+  AC_MSG_CHECKING([whether to build test_agricoin-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1047,7 +1047,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_htmlcoin])
+AC_MSG_CHECKING([whether to build test_agricoin])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"
