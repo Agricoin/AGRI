@@ -342,13 +342,13 @@ public:
         nPruneAfterHeight = 1000;
         startNewChain = false;
 
-        genesis = CreateGenesisBlock(1506213200, 2, 0x207fffff, 1, 1 * COIN);
+        genesis = CreateGenesisBlock(1521515740, 44287, 0x1f00ffff, 1, 1 * COIN);
 
         if (startNewChain)
             MineGenesis(genesis, consensus.powLimit, false);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x03c80d2399e1fe481a51e122ac55159a4e5fe635494a7fd368f3e440241fccb2"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -358,10 +358,11 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
 
-        checkpointData = (CCheckpointData){
+        checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("03c80d2399e1fe481a51e122ac55159a4e5fe635494a7fd368f3e440241fccb2"))
+            ( 0, uint256S("0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea")),
         };
+
 
         chainTxData = ChainTxData{
             0,
@@ -372,7 +373,7 @@ public:
         consensus.nMPoSRewardRecipients = 10;
         consensus.nFirstMPoSBlock = 1325;
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,120);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,23);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,110);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
