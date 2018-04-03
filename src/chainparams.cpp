@@ -249,27 +249,27 @@ public:
         consensus.defaultAssumeValid = uint256S("0x00000000000128796ee387cf110ccb9d2f36cffaf7f73079c995377c65ac0dcc"); //1079274
 
         pchMessageStart[0] = 0x2f;
-        pchMessageStart[1] = 0x3e;
-        pchMessageStart[2] = 0x4d;
-        pchMessageStart[3] = 0x5c;
+        pchMessageStart[1] = 0x10;
+        pchMessageStart[2] = 0x6e;
+        pchMessageStart[3] = 0x78;
         nDefaultPort = 14888;
         nPruneAfterHeight = 1000;
         startNewChain = false;
 
-        genesis = CreateGenesisBlock(1506212200, 102232, 0x1f00ffff, 1, 1 * COIN);
+        genesis = CreateGenesisBlock(1521515740, 44287, 0x1f00ffff, 1, 1 * COIN);
 
         if (startNewChain)
             MineGenesis(genesis, consensus.powLimit, false);
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000013694772f8aeb88efeb2829fe5d71fbca3e23d5043baa770726f204f528c"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("htmlcoin.com", "testnet-seed1.htmlcoin.com", false));
+        //vSeeds.push_back(CDNSSeedData("htmlcoin.com", "testnet-seed1.htmlcoin.com", false));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,100);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,23);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,110);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,228);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
@@ -284,7 +284,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("000013694772f8aeb88efeb2829fe5d71fbca3e23d5043baa770726f204f528c")),
+            ( 0, uint256S("0000a3ca4a4ef3446f443cbad683ed63548963f8b4775c7e31b360506ac591ea")),
         };
 
         chainTxData = ChainTxData{
